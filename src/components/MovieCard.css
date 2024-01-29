@@ -34,10 +34,13 @@
         border: none;
         color: white;
         background-color: #3a506b;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        transition: 300ms ease-in-out;
 
         &:hover {
-            background-color: #5bc0be;
-            color: black;
+            background-color: #49d473;
         }
     }
 }

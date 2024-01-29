@@ -1,9 +1,14 @@
 .movie-card {
     position: relative;
-    border: 1px solid white;
+    border: 3px solid white;
     background-color: #1c2541;
     border-radius: 10px;
     overflow: hidden;
+    transition: border-color 300ms ease-in-out;
+
+    &:hover {
+        border-color: #3b476b;
+    }
 
     .movie-image {
         width: 100%;

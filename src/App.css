@@ -1,3 +1,13 @@
+.app {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    h1 {
+        color: white;
+        font-size: 40px;
+    }
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -5,8 +15,7 @@
 }
 
 .spinner-container {
-    width: 100vw;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }

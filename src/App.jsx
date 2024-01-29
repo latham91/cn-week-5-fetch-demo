@@ -37,7 +37,8 @@ export default function App() {
         setFiltedMovies(filteredMovies);
     };
     return (
-        <>
+        <div className="app">
+            <h1>Studio Ghibli Movies</h1>
             <Search search={handleSearch} />
             <div className="container">
                 {filtedMovies.length > 0 &&
@@ -45,16 +46,17 @@ export default function App() {
                         return <MovieCard movie={movie} key={movie.id} />;
                     })}
 
-                {filtedMovies.length === 0 && data.length > 0 ? (
+                {filtedMovies.length === 0 &&
+                    data.length > 0 &&
                     data.map((movie) => {
                         return <MovieCard movie={movie} key={movie.id} />;
-                    })
-                ) : (
-                    <div className="spinner-container">
-                        <Spinner />
-                    </div>
-                )}
+                    })}
             </div>
-        </>
+            {data.length === 0 && (
+                <div className="spinner-container">
+                    <Spinner />
+                </div>
+            )}
+        </div>
     );
 }

@@ -17,7 +17,13 @@ export default function MovieCard({ movie }) {
     return (
         <>
             <div className="movie-card" key={movie.id}>
-                <img className="movie-image" src={movie.image} alt={movie.title + " image"} draggable={false} />
+                <img
+                    onClick={openModal}
+                    className="movie-image"
+                    src={movie.image}
+                    alt={movie.title + " image"}
+                    draggable={false}
+                />
                 <h2 className="movie-title">{movie.title}</h2>
                 <p className="movie-description">{movie.description.substring(0, 150) + "..."}</p>
                 <button onClick={openModal} className="btnInfo">

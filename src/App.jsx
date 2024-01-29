@@ -3,6 +3,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import MovieCard from "./components/MovieCard";
 import Search from "./components/Search";
+import Spinner from "./components/Spinner";
 
 export default function App() {
     const [data, setData] = useState([]);
@@ -49,7 +50,9 @@ export default function App() {
                         return <MovieCard movie={movie} key={movie.id} />;
                     })
                 ) : (
-                    <h1>Loading...</h1>
+                    <div className="spinner-container">
+                        <Spinner />
+                    </div>
                 )}
             </div>
         </>

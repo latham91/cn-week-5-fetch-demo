@@ -3,3 +3,10 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
+
+.spinner-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,43 @@
+.movie-card {
+    position: relative;
+    border: 1px solid white;
+    background-color: #1c2541;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .movie-image {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .movie-title {
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .movie-description {
+        color: white;
+        padding: 10px;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 50px;
+    }
+
+    .btnInfo {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 14px 24px;
+        width: 100%;
+        border: none;
+        color: white;
+        background-color: #3a506b;
+
+        &:hover {
+            background-color: #5bc0be;
+            color: black;
+        }
+    }
+}

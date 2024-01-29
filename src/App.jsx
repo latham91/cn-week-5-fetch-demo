@@ -1,9 +1,12 @@
 import "./App.css";
 
 import { useState, useEffect } from "react";
+import MovieCard from "./components/MovieCard";
+import Search from "./components/Search";
 
 export default function App() {
     const [data, setData] = useState([]);
+    const [filtedMovies, setFiltedMovies] = useState([]);
 
     const fetchData = async () => {
         try {
@@ -14,6 +17,7 @@ export default function App() {
             }
 
             const data = await response.json();
+
             setData(data);
         } catch (error) {
             console.error(error);
@@ -24,22 +28,30 @@ export default function App() {
         fetchData();
     }, []);
 
+    const handleSearch = (searchValue) => {
+        const filteredMovies = data.filter((movie) => {
+            return movie.title.toLowerCase().includes(searchValue.toLowerCase());
+        });
+
+        setFiltedMovies(filteredMovies);
+    };
     return (
-        <div>
-            {data.length > 0 ? (
-                data.map((movie) => (
-                    <>
-                        <div key={movie.id}>
-                            <img src={movie.image} alt={movie.title + " image"} width="150px" />
-                            <h2>{movie.title}</h2>
-                            <p>{movie.description}</p>
-                        </div>
-                        <hr />
-                    </>
-                ))
-            ) : (
-                <p>Loading...</p>
-            )}
-        </div>
+        <>
+            <Search search={handleSearch} />
+            <div className="container">
+                {filtedMovies.length > 0 &&
+                    filtedMovies.map((movie) => {
+                        return <MovieCard movie={movie} key={movie.id} />;
+                    })}
+
+                {filtedMovies.length === 0 && data.length > 0 ? (
+                    data.map((movie) => {
+                        return <MovieCard movie={movie} key={movie.id} />;
+                    })
+                ) : (
+                    <h1>Loading...</h1>
+                )}
+            </div>
+        </>
     );
 }

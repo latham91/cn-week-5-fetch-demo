@@ -11,7 +11,10 @@ export default function Modal({ movie, close, status }) {
 
     const handleCloseBg = (event) => {
         if (event.target === modalBg.current) {
-            close();
+            setCloseAnim(true);
+            setTimeout(() => {
+                close();
+            }, 499);
         }
 
         return;
@@ -57,7 +60,7 @@ export default function Modal({ movie, close, status }) {
                         <p>{movie.running_time} minutes</p>
                         <hr />
 
-                        <h3>🍅 Rotton Tomatoes Score</h3>
+                        <h3>🍅 Rotten Tomatoes Score</h3>
                         <p>{movie.rt_score}/100</p>
                     </div>
                 </div>

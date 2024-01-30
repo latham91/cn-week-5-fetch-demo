@@ -4,7 +4,7 @@ import Spinner from "../components/Spinner";
 
 import PropTypes from "prop-types";
 
-export default function Homepage({ handleSearch, data, filteredMovies }) {
+export default function HomePage({ handleSearch, data, filteredMovies }) {
     return (
         <>
             <Search search={handleSearch} />
@@ -29,7 +29,7 @@ export default function Homepage({ handleSearch, data, filteredMovies }) {
     );
 }
 
-Homepage.propTypes = {
+HomePage.propTypes = {
     handleSearch: PropTypes.func.isRequired,
     data: PropTypes.array.isRequired,
     filteredMovies: PropTypes.array.isRequired,

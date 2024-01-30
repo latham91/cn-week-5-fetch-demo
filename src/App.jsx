@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import MoviePage from "./pages/MoviePage";
-import Homepage from "./pages/Homepage";
+import HomePage from "./pages/HomePage";
 
 export default function App() {
     const [data, setData] = useState([]);
@@ -43,7 +43,7 @@ export default function App() {
             <Routes>
                 <Route
                     path="/"
-                    element={<Homepage handleSearch={handleSearch} filteredMovies={filteredMovies} data={data} />}
+                    element={<HomePage handleSearch={handleSearch} filteredMovies={filteredMovies} data={data} />}
                 />
                 <Route path="/films/:id" element={<MoviePage />} />
             </Routes>

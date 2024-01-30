@@ -65,7 +65,7 @@ export default function MoviePage() {
                                 <p className="film-info">{movieData.release_date}</p>
 
                                 <h3 className="film-info-header">Rotten Tomatoes Score</h3>
-                                <p className="film-info">{movieData.rt_score}</p>
+                                <p className="film-info">{movieData.rt_score}/100</p>
 
                                 <h3 className="film-info-header">Running Time</h3>
                                 <p className="film-info">{movieData.running_time} minutes</p>

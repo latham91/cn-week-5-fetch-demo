@@ -46,6 +46,11 @@
         font-size: 16px;
         transition: 300ms ease-in-out;
 
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
         &:hover {
             background-color: #49d473;
         }

@@ -1,15 +1,6 @@
 .app {
     max-width: 1400px;
     margin: 0 auto;
-
-    h1 {
-        color: white;
-        font-size: 40px;
-
-        .icon {
-            margin-left: 10px;
-        }
-    }
 }
 
 .container {

@@ -1,17 +1,18 @@
 import "./App.css";
 
 import { useState, useEffect } from "react";
-import MovieCard from "./components/MovieCard";
-import Search from "./components/Search";
-import Spinner from "./components/Spinner";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import MoviePage from "./pages/MoviePage";
+import Homepage from "./pages/Homepage";
 
 export default function App() {
     const [data, setData] = useState([]);
-    const [filtedMovies, setFiltedMovies] = useState([]);
+    const [filteredMovies, setFiltedMovies] = useState([]);
 
     const fetchData = async () => {
         try {
-            const response = await fetch("https://ghibliapi.vercel.app/films");
+            const response = await fetch(`https://ghibliapi.vercel.app/films`);
 
             if (!response.ok) {
                 throw new Error(`Failed to fetch data: ${response.status}`);
@@ -37,26 +38,15 @@ export default function App() {
         setFiltedMovies(filteredMovies);
     };
     return (
-        <div className="app">
-            <h1>Studio Ghibli Movies</h1>
-            <Search search={handleSearch} />
-            <div className="container">
-                {filtedMovies.length > 0 &&
-                    filtedMovies.map((movie) => {
-                        return <MovieCard movie={movie} key={movie.id} />;
-                    })}
-
-                {filtedMovies.length === 0 &&
-                    data.length > 0 &&
-                    data.map((movie) => {
-                        return <MovieCard movie={movie} key={movie.id} />;
-                    })}
-            </div>
-            {data.length === 0 && (
-                <div className="spinner-container">
-                    <Spinner />
-                </div>
-            )}
-        </div>
+        <>
+            <Navbar />
+            <Routes>
+                <Route
+                    path="/"
+                    element={<Homepage handleSearch={handleSearch} filteredMovies={filteredMovies} data={data} />}
+                />
+                <Route path="/films/:id" element={<MoviePage />} />
+            </Routes>
+        </>
     );
 }

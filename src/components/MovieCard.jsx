@@ -2,6 +2,7 @@ import "./MovieCard.css";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Modal from "./Modal";
+import { Link } from "react-router-dom";
 
 export default function MovieCard({ movie }) {
     const [toggleModal, setToggleModal] = useState(false);
@@ -26,9 +27,9 @@ export default function MovieCard({ movie }) {
                 />
                 <h2 className="movie-title">{movie.title}</h2>
                 <p className="movie-description">{movie.description.substring(0, 150) + "..."}</p>
-                <button onClick={openModal} className="btnInfo">
-                    More Info
-                </button>
+                <Link to={`/films/${movie.id}`}>
+                    <button className="btnInfo">More Info</button>
+                </Link>
             </div>
             {toggleModal && <Modal movie={movie} close={closeModal} status={toggleModal} />}
         </>
